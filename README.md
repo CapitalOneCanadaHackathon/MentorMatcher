@@ -1,5 +1,19 @@
 # Application
 
+## System requirements
+
+You need to install `Docker`, `Java`, `Maven`, `postgres` (from homebrew)
+
+## Before
+
+Run `sh init.sh`
+
+## Run application
+
+Run `sh run.sh`
+
+To connect to postgres, use `psql -h localhost -p 5432` and input password
+
 ## Health check
 
 Endpoint `http://localhost:8080/health`
