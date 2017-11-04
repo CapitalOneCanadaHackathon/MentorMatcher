@@ -1,5 +1,8 @@
 package ca.giftthecode.indspire.mentormatcher.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,12 +19,14 @@ public class Customer implements Serializable {
     private long id;
 
     @Column(name = "firstname")
-    private String firstName;
+    @Getter @Setter
+    public String firstName;
 
     @Column(name = "lastname")
-    private String lastName;
+    @Getter @Setter
+    public String lastName;
 
-    protected Customer() {
+    public Customer() {
     }
 
     public Customer(String firstName, String lastName) {

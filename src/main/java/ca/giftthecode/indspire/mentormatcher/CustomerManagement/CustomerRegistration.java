@@ -33,6 +33,9 @@ public class CustomerRegistration {
     @RequestMapping(value = "/findcustomer", method = RequestMethod.POST)
     public String findCustomer(@RequestBody String inputString) {
         List<Customer> customerList = repository.findByLastName("Smith");
+        Customer c = customerList.get(0);
+        System.out.println(c);
+        System.out.println(c);
         return customerList.get(0).toString();
     }
 
