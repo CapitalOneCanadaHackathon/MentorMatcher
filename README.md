@@ -12,7 +12,7 @@ Run `sh init.sh`
 
 Run `sh run.sh`
 
-To connect to postgres, use `psql -h localhost -p 5432` and input password
+To connect to postgres, use `psql -h localhost -p 5432 -U pguser` and input password
 
 ## Health check
 
