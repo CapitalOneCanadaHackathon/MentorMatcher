@@ -20,6 +20,8 @@ Endpoint `http://localhost:8080/health`
 
 Method `GET`
 
+Sample `curl -v http://localhost:8080/health`
+
 ## To register a new customer with the system
 
 Endpoint `http://localhost:8080/registernewcustomer`
@@ -28,7 +30,7 @@ Method `POST`
 
 Data format `JSON`
 
-Sample `curl -v -d "hello" http://localhost:8080/registernewcustomer`
+Sample `curl -H "Content-Type: application/json" -d '{"firstName":"Jack","lastName":"Smith", "age": 20, "education": "highschool", "isEducator": true, "programTrack": "mentor", "grade": null, "fieldOfStudy": null, "province": "Ontario", "gender": "male", "isIndigenous": true, "comments": "Has won olympic math awards."}' http://localhost:8080/registernewcustomer`
 
 ## To get matches of customers
 
