@@ -33,7 +33,7 @@ public class CustomerRegistration {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return inputString;
+        return "Customer Registered Successfully";
     }
 
 }

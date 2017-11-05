@@ -44,6 +44,16 @@ psql> \dt
 psql> SELECT * FROM customer;
 ```
 
+## To get a list of all customers
+
+To get those who are mentees and a certain level of education (high school or postsecondary)
+
+`curl -d "hello" http://localhost:8080/findcustomers`
+
+To get those who are mentees and an educator
+
+``
+
 ## To get matches of customers
 
 Endpoint `http://localhost:8080/getcustomermatches`

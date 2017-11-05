@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,9 +23,9 @@ public class CustomerMatching {
 
     @RequestMapping(value = "/findcustomers", method = RequestMethod.POST)
     public String findCustomer(@RequestBody String inputString) {
-        List<Customer> customerList = repository.findByFirstName("Jack");
-        Customer c = repository.findById(1);
-        return c.toString();
+        List<Customer> customerList = repository.findByEducationAndProgramTrack("highschool", "mentee");
+        System.out.println(Arrays.toString(customerList.toArray()));
+        return inputString;
     }
 
     @RequestMapping(value = "/getcustomermatches", method = RequestMethod.GET)

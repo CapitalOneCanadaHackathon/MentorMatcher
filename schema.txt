@@ -1,0 +1,12 @@
+"firstName":String,
+"lastName":String, 
+"age": Int, 
+"education": String ("highschool", "postsecondary", "professional"), 
+"isEducator": Boolean, 
+"programTrack": String ("mentor", "mentee", "both"), 
+"grade": Int, 
+"fieldOfStudy": String, 
+"province": String, 
+"gender": String ("male", "female"), 
+"isIndigenous": Boolean, 
+"comments": String
