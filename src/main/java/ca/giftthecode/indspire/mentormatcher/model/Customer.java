@@ -3,6 +3,7 @@ package ca.giftthecode.indspire.mentormatcher.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -18,63 +19,63 @@ public class Customer implements Serializable {
     private long id;
 
     //    Identification
-    @Column(name = "firstName")
     @JsonProperty("firstName")
+    @NotNull
     public String firstName;
 
-    @Column(name = "lastName")
     @JsonProperty("lastName")
+    @NotNull
     public String lastName;
 
-    @Column(name = "age")
     @JsonProperty("age")
+    @NotNull
     public int age;
 
     //    Type of customer
-    @Column(name = "education")  // "highschool" or "postsecondary" or "professional"
     @JsonProperty("education")
+    @NotNull
     public String education;
 
-    @Column(name = "isEducator")
     @JsonProperty("isEducator")
     public boolean isEducator;
 
-    @Column(name = "programTrack")  // "mentor" or "mentee" or "both"
     @JsonProperty("programTrack")
+    @NotNull
     public String programTrack;
 
     //    Matching criteria
-    @Column(name = "grade")
     @JsonProperty("grade")
     public int grade;
 
-    @Column(name = "fieldOfStudy")
     @JsonProperty("fieldOfStudy")
     public String fieldOfStudy;
 
-    @Column(name = "province")
     @JsonProperty("province")
+    @NotNull
     public String province;
 
-    @Column(name = "gender")
     @JsonProperty("gender")
+    @NotNull
     public String gender;
 
-    @Column(name = "isIndigenous")
     @JsonProperty("isIndigenous")
     public boolean isIndigenous;
 
     //    Extra information
-    @Column(name = "comments")
     @JsonProperty("comments")
     public String comments;
 
     public Customer() {
     }
 
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public Customer(String firstName, String lastName, int age, String education, boolean isEducator,
                     String programTrack, int grade, String fieldOfStudy, String province,
-                    String gender, boolean isIndigenous) {
+                    String gender, boolean isIndigenous, String comments) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -86,6 +87,7 @@ public class Customer implements Serializable {
         this.province = province;
         this.gender = gender;
         this.isIndigenous = isIndigenous;
+        this.comments = comments;
     }
 
     @Override

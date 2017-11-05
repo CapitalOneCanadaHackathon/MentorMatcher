@@ -30,7 +30,19 @@ Method `POST`
 
 Data format `JSON`
 
-Sample `curl -H "Content-Type: application/json" -d '{"firstName":"Jack","lastName":"Smith", "age": 20, "education": "highschool", "isEducator": true, "programTrack": "mentor", "grade": null, "fieldOfStudy": null, "province": "Ontario", "gender": "male", "isIndigenous": true, "comments": "Has won olympic math awards."}' http://localhost:8080/registernewcustomer`
+Sample
+
+`curl -H "Content-Type: application/json" -d '{"firstName":"Jack","lastName":"Smith", "age": 20, "education": "professional", "isEducator": true, "programTrack": "mentor", "grade": null, "fieldOfStudy": null, "province": "Ontario", "gender": "male", "isIndigenous": true, "comments": "Has won olympic math awards."}' http://localhost:8080/registernewcustomer`
+
+`curl -H "Content-Type: application/json" -d '{"firstName":"Rosey","lastName":"Johnson", "age": 17, "education": "highschool", "isEducator": false, "programTrack": "mentee", "grade": 11, "fieldOfStudy": "music", "province": "Ontario", "gender": "female", "isIndigenous": true, "comments": "Is looking for someone to tutor her."}' http://localhost:8080/registernewcustomer`
+
+To validate
+
+```
+psql> \connect postgres
+psql> \dt
+psql> SELECT * FROM customer;
+```
 
 ## To get matches of customers
 
