@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by nathanwu on 11/4/17.
@@ -26,10 +28,6 @@ public class Customer implements Serializable {
     @JsonProperty("lastName")
     @NotNull
     public String lastName;
-
-    @JsonProperty("age")
-    @NotNull
-    public int age;
 
     //    Type of customer
     @JsonProperty("education")
@@ -65,20 +63,18 @@ public class Customer implements Serializable {
     @JsonProperty("comments")
     public String comments;
 
+    public int menteeCount = 0;
+    public long mentorId = -1;
+    public String menteeList = "";
+
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Customer(String firstName, String lastName, int age, String education, boolean isEducator,
+    public Customer(String firstName, String lastName, String education, boolean isEducator,
                     String programTrack, int grade, String fieldOfStudy, String province,
                     String gender, boolean isIndigenous, String comments) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
         this.education = education;
         this.isEducator = isEducator;
         this.programTrack = programTrack;
@@ -92,10 +88,10 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Customer[id=%d, firstName='%s', lastName='%s', age=%d, education='%s',"+
+        return String.format("Customer[id=%d, firstName='%s', lastName='%s', education='%s',"+
                         " isEducator=%s, programTrack='%s', grade=%d, fieldOfStudy='%s', province='%s', "+
-                        "gender='%s', isIndigenous=%s, comments='%s']",
-                id, firstName, lastName, age, education, isEducator, programTrack,
-                grade, fieldOfStudy, province, gender, isIndigenous, comments);
+                        "gender='%s', isIndigenous=%s, comments='%s', menteeCount=%d, menteeList=%s, mentorId=%d]",
+                id, firstName, lastName, education, isEducator, programTrack, grade, fieldOfStudy,
+                province, gender, isIndigenous, comments, menteeCount, menteeList, mentorId);
     }
 }

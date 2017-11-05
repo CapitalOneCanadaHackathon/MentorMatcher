@@ -32,9 +32,9 @@ Data format `JSON`
 
 Sample
 
-`curl -H "Content-Type: application/json" -d '{"firstName":"Jack","lastName":"Smith", "age": 20, "education": "professional", "isEducator": true, "programTrack": "mentor", "grade": null, "fieldOfStudy": null, "province": "Ontario", "gender": "male", "isIndigenous": true, "comments": "Has won olympic math awards."}' http://localhost:8080/registernewcustomer`
+`curl -H "Content-Type: application/json" -d '{"firstName":"Jack","lastName":"Smith", "education": "professional", "isEducator": true, "programTrack": "mentor", "grade": null, "fieldOfStudy": null, "province": "Ontario", "gender": "male", "isIndigenous": true, "comments": "Has won olympic math awards."}' http://localhost:8080/registernewcustomer`
 
-`curl -H "Content-Type: application/json" -d '{"firstName":"Rosey","lastName":"Johnson", "age": 17, "education": "highschool", "isEducator": false, "programTrack": "mentee", "grade": 11, "fieldOfStudy": "music", "province": "Ontario", "gender": "female", "isIndigenous": true, "comments": "Is looking for someone to tutor her."}' http://localhost:8080/registernewcustomer`
+`curl -H "Content-Type: application/json" -d '{"firstName":"Rosey","lastName":"Johnson", "education": "highschool", "isEducator": false, "programTrack": "mentee", "grade": 11, "fieldOfStudy": "music", "province": "Ontario", "gender": "female", "isIndigenous": true, "comments": "Is looking for someone to tutor her."}' http://localhost:8080/registernewcustomer`
 
 To validate
 
@@ -46,18 +46,30 @@ psql> SELECT * FROM customer;
 
 ## To get a list of all customers
 
-To get those who are mentees and a certain level of education (high school or postsecondary)
+To get those who are mentees and in high school
 
-`curl -d "hello" http://localhost:8080/findcustomers`
+`curl http://localhost:8080/gethighschoolmentees`
 
-To get those who are mentees and an educator
+To get those who are mentees and in post-secondary
 
-``
+`curl http://localhost:8080/getpostsecondarymentees`
+
+To get those who are mentees and educators
+
+`curl http://localhost:8080/geteducatormentees`
 
 ## To get matches of customers
 
-Endpoint `http://localhost:8080/getcustomermatches`
+Endpoint `http://localhost:8080/gettopfivematches`
 
-Method `GET`
+Method `POST`
 
-Sample `curl -v http://localhost:8080/getcustomermatches`
+Sample `curl -H "Content-Type: text/plain" -d "1" http://localhost:8080/gettopfivematches`
+
+## To make a match for a pair of customers
+
+Endpoint `http://localhost:8080/pairmatches`
+
+Method `POST`
+
+Sample `curl -H "Content-Type: application/json" -d '{"mentorId":"1", "menteeId":"3"}' http://localhost:8080/pairmatches`
